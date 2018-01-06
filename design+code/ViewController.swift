@@ -157,6 +157,31 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
 
+    // CollectionView way to do something on Item click
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "HomeToSection", sender: indexPath)
+    }
+    
+    // send data to controller we are navigating to
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "HomeToSection" {
+            
+            // specifically define what controller is the destination
+            // so we have acess to the variables on it
+            let toViewController = segue.destination as! SectionViewController
+
+            // When we called performSegue, we sent indexPath as the sender. With indexPath.row, we can get a specific section.
+            let indexPath = sender as! IndexPath
+            let section = sections[indexPath.row]
+            
+            // set the data
+            toViewController.section = section
+            toViewController.sections = sections
+            toViewController.indexPath = indexPath
+        }
+        
+    }
     
     
     

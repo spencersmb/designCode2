@@ -21,6 +21,7 @@ class SectionViewController: UIViewController {
     var sections: [[String: String]]!
     var indexPath: IndexPath!
     @IBAction func closeButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,10 @@ class SectionViewController: UIViewController {
         captionLabel.text = section["caption"]
         bodyLabel.text = section["body"]
         coverImageView.image = UIImage(named: section["image"]!)
+        
+        // since array starts at 0 - we add 1
+        progressLabel.text = "\(indexPath.row+1) / \((sections.count))"
+
     }
 
     override func didReceiveMemoryWarning() {

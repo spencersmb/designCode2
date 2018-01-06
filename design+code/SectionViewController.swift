@@ -10,10 +10,26 @@ import UIKit
 
 class SectionViewController: UIViewController {
 
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var bodyLabel: UILabel!
+    var section: [String: String]!
+    
+    // Progress variables
+    var sections: [[String: String]]!
+    var indexPath: IndexPath!
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        titleLabel.text = section["title"]
+        captionLabel.text = section["caption"]
+        bodyLabel.text = section["body"]
+        coverImageView.image = UIImage(named: section["image"]!)
     }
 
     override func didReceiveMemoryWarning() {

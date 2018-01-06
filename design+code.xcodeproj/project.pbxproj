@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C21A578420017B6100AF434A /* TestimonialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21A578320017B6100AF434A /* TestimonialCell.swift */; };
+		C22CD94B2000C478009FB49B /* TesitimonialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22CD94A2000C478009FB49B /* TesitimonialViewController.swift */; };
 		C27248801FF19C260027EC92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272487F1FF19C260027EC92 /* AppDelegate.swift */; };
 		C27248821FF19C260027EC92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27248811FF19C260027EC92 /* ViewController.swift */; };
 		C27248851FF19C260027EC92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27248831FF19C260027EC92 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C21A578320017B6100AF434A /* TestimonialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestimonialCell.swift; sourceTree = "<group>"; };
+		C22CD94A2000C478009FB49B /* TesitimonialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesitimonialViewController.swift; sourceTree = "<group>"; };
 		C272487C1FF19C260027EC92 /* design+code.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "design+code.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272487F1FF19C260027EC92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C27248811FF19C260027EC92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				C2A91AB31FF644EC00EE6754 /* Data.swift */,
 				C2DFA1591FFF5E44008EAA86 /* ChaptersCell.swift */,
 				C2F0F0502000419E006A65B9 /* SnapViewController.swift */,
+				C22CD94A2000C478009FB49B /* TesitimonialViewController.swift */,
+				C21A578320017B6100AF434A /* TestimonialCell.swift */,
 			);
 			path = "design+code";
 			sourceTree = "<group>";
@@ -152,10 +158,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C27248881FF19C260027EC92 /* design_code.xcdatamodeld in Sources */,
+				C21A578420017B6100AF434A /* TestimonialCell.swift in Sources */,
 				C2DFA15A1FFF5E44008EAA86 /* ChaptersCell.swift in Sources */,
 				C2A91AB61FF653F900EE6754 /* SectionViewController.swift in Sources */,
 				C27248821FF19C260027EC92 /* ViewController.swift in Sources */,
 				C2F0F0512000419E006A65B9 /* SnapViewController.swift in Sources */,
+				C22CD94B2000C478009FB49B /* TesitimonialViewController.swift in Sources */,
 				C27248801FF19C260027EC92 /* AppDelegate.swift in Sources */,
 				C2A91AB41FF644EC00EE6754 /* Data.swift in Sources */,
 			);

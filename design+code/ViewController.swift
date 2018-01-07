@@ -59,8 +59,12 @@ class ViewController: UIViewController {
             self.playVisualEffectView.alpha = 1
         }
         
-        setStatusBarBackgroundColor(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5))
-
+        //set status bar color
+        setStatusBarBackgroundColor(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0))
+        
+        // set nav bar hidden at first load
+        // scroll listener pushes it in
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,6 +130,10 @@ extension ViewController: UIScrollViewDelegate {
 
             }
         }
+        
+        
+        let navigationIsHidden = offsetY <= 0
+        navigationController?.setNavigationBarHidden(navigationIsHidden, animated: true)
     }
     
 }
@@ -181,6 +189,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             isStatusBarHidden = true
             UIView.animate(withDuration: 0.5){
                 self.setNeedsStatusBarAppearanceUpdate()
+                self.navigationController?.setNavigationBarHidden(self.isStatusBarHidden, animated: true)
             }
         }
         
@@ -207,6 +216,7 @@ extension ViewController {
         isStatusBarHidden = false
         UIView.animate(withDuration: 0.5) {
             self.setNeedsStatusBarAppearanceUpdate()
+        self.navigationController?.setNavigationBarHidden(self.isStatusBarHidden, animated: true)
         }
     }
     

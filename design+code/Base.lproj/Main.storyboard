@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="kHN-A7-15l">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="2500"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="2480"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eho-ye-wuX" userLabel="HeroView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="450"/>
@@ -471,7 +471,7 @@
                             <constraint firstItem="kHN-A7-15l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SF3-po-5tf"/>
                             <constraint firstAttribute="bottom" secondItem="kHN-A7-15l" secondAttribute="bottom" id="WNs-gO-Wqx"/>
                             <constraint firstAttribute="trailing" secondItem="kHN-A7-15l" secondAttribute="trailing" id="ZIf-yP-oPE"/>
-                            <constraint firstItem="kHN-A7-15l" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="db9-mX-7Nj"/>
+                            <constraint firstItem="kHN-A7-15l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="db9-mX-7Nj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

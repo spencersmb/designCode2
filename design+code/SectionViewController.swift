@@ -20,6 +20,7 @@ class SectionViewController: UIViewController {
     // Progress variables
     var sections: [[String: String]]!
     var indexPath: IndexPath!
+    var isStatusBarHidden = false
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -34,7 +35,10 @@ class SectionViewController: UIViewController {
         
         // since array starts at 0 - we add 1
         progressLabel.text = "\(indexPath.row+1) / \((sections.count))"
-
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
     override func didReceiveMemoryWarning() {

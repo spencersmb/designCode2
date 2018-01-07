@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var heroView: UIView!
     @IBOutlet weak var bookView: UIView!
     private var indexOfCellBeforeDragging = 0
+    var isStatusBarHidden = false
     
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
@@ -58,11 +59,8 @@ class ViewController: UIViewController {
             self.playVisualEffectView.alpha = 1
         }
         
-        
-        // Set spacing between cells to zero and cell spacing is done with UIEdgeInsets + in the UIVIEW design
-//        collectionViewLayout.minimumLineSpacing = 0
-        // On init - create the cell spacing + size
-//        configureCollectionViewLayoutItemSize()
+        setStatusBarBackgroundColor(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5))
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -170,7 +168,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             // specifically define what controller is the destination
             // so we have acess to the variables on it
             let toViewController = segue.destination as! SectionViewController
-
+            
             // When we called performSegue, we sent indexPath as the sender. With indexPath.row, we can get a specific section.
             let indexPath = sender as! IndexPath
             let section = sections[indexPath.row]
@@ -179,11 +177,47 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             toViewController.section = section
             toViewController.sections = sections
             toViewController.indexPath = indexPath
+            
+            isStatusBarHidden = true
+            UIView.animate(withDuration: 0.5){
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
         }
         
     }
     
+}
+
+extension ViewController {
     
+    // change status bar color
+    func setStatusBarBackgroundColor(color: UIColor) {
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = color
+    }
     
+    // dark or light text for statusbar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    // when we’re coming back from the Section screen, we need to show the status bar again. Use viewWillAppear, since it runs before viewDidAppear and viewDidLoad.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        isStatusBarHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    // update the status bar
+    override var prefersStatusBarHidden: Bool {
+        return isStatusBarHidden
+    }
+    
+    // setting the type of animation to slide
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
 }
 

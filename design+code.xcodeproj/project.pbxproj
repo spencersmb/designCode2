@@ -18,6 +18,10 @@
 		C2A91AB41FF644EC00EE6754 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A91AB31FF644EC00EE6754 /* Data.swift */; };
 		C2A91AB61FF653F900EE6754 /* SectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A91AB51FF653F900EE6754 /* SectionViewController.swift */; };
 		C2DFA15A1FFF5E44008EAA86 /* ChaptersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFA1591FFF5E44008EAA86 /* ChaptersCell.swift */; };
+		C2E82AE420020C2F009C213E /* ChaptersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E82AE320020C2F009C213E /* ChaptersViewController.swift */; };
+		C2E82AE62002C349009C213E /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E82AE52002C349009C213E /* BookmarksViewController.swift */; };
+		C2E82AE82002C872009C213E /* Bookmarks.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2E82AE72002C872009C213E /* Bookmarks.plist */; };
+		C2E82AEA2002C8C4009C213E /* bookmarkMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E82AE92002C8C4009C213E /* bookmarkMocks.swift */; };
 		C2F0F0512000419E006A65B9 /* SnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F0F0502000419E006A65B9 /* SnapViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +39,10 @@
 		C2A91AB31FF644EC00EE6754 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C2A91AB51FF653F900EE6754 /* SectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewController.swift; sourceTree = "<group>"; };
 		C2DFA1591FFF5E44008EAA86 /* ChaptersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersCell.swift; sourceTree = "<group>"; };
+		C2E82AE320020C2F009C213E /* ChaptersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersViewController.swift; sourceTree = "<group>"; };
+		C2E82AE52002C349009C213E /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		C2E82AE72002C872009C213E /* Bookmarks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Bookmarks.plist; sourceTree = "<group>"; };
+		C2E82AE92002C8C4009C213E /* bookmarkMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarkMocks.swift; sourceTree = "<group>"; };
 		C2F0F0502000419E006A65B9 /* SnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +89,10 @@
 				C2F0F0502000419E006A65B9 /* SnapViewController.swift */,
 				C22CD94A2000C478009FB49B /* TesitimonialViewController.swift */,
 				C21A578320017B6100AF434A /* TestimonialCell.swift */,
+				C2E82AE320020C2F009C213E /* ChaptersViewController.swift */,
+				C2E82AE52002C349009C213E /* BookmarksViewController.swift */,
+				C2E82AE72002C872009C213E /* Bookmarks.plist */,
+				C2E82AE92002C8C4009C213E /* bookmarkMocks.swift */,
 			);
 			path = "design+code";
 			sourceTree = "<group>";
@@ -146,6 +158,7 @@
 			files = (
 				C272488D1FF19C260027EC92 /* LaunchScreen.storyboard in Resources */,
 				C272488A1FF19C260027EC92 /* Assets.xcassets in Resources */,
+				C2E82AE82002C872009C213E /* Bookmarks.plist in Resources */,
 				C27248851FF19C260027EC92 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,9 +175,12 @@
 				C2DFA15A1FFF5E44008EAA86 /* ChaptersCell.swift in Sources */,
 				C2A91AB61FF653F900EE6754 /* SectionViewController.swift in Sources */,
 				C27248821FF19C260027EC92 /* ViewController.swift in Sources */,
+				C2E82AEA2002C8C4009C213E /* bookmarkMocks.swift in Sources */,
 				C2F0F0512000419E006A65B9 /* SnapViewController.swift in Sources */,
+				C2E82AE62002C349009C213E /* BookmarksViewController.swift in Sources */,
 				C22CD94B2000C478009FB49B /* TesitimonialViewController.swift in Sources */,
 				C27248801FF19C260027EC92 /* AppDelegate.swift in Sources */,
+				C2E82AE420020C2F009C213E /* ChaptersViewController.swift in Sources */,
 				C2A91AB41FF644EC00EE6754 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

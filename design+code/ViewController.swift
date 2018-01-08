@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var bookView: UIView!
     private var indexOfCellBeforeDragging = 0
     var isStatusBarHidden = false
+    var offsetYNav:CGFloat = CGFloat(0)
+
     
     
     @IBAction func playButtonTapped(_ sender: UIButton) {
@@ -44,6 +46,13 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // set nav bar hidden at first load
+        // scroll listener pushes it in
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
         titleLabel.alpha = 0
         deviceImageView.alpha = 0
@@ -62,9 +71,6 @@ class ViewController: UIViewController {
         //set status bar color
         setStatusBarBackgroundColor(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0))
         
-        // set nav bar hidden at first load
-        // scroll listener pushes it in
-        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,14 +109,14 @@ extension ViewController: UIScrollViewDelegate {
     
     // Put Scroll functionalities to ViewController
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        if offsetY < 0 {
+        offsetYNav = scrollView.contentOffset.y
+        if offsetYNav < 0 {
             // stop hero from bouncing at the top be default
-            heroView.transform = CGAffineTransform(translationX: 0, y: offsetY)
-            playVisualEffectView.transform = CGAffineTransform(translationX: 0, y: -offsetY/3)
-            titleLabel.transform = CGAffineTransform(translationX: 0, y: -offsetY/3)
-            deviceImageView.transform = CGAffineTransform(translationX: 0, y: -offsetY/4)
-            heroBg.transform = CGAffineTransform(translationX: 0, y: -offsetY/5)
+            heroView.transform = CGAffineTransform(translationX: 0, y: offsetYNav)
+            playVisualEffectView.transform = CGAffineTransform(translationX: 0, y: -offsetYNav/3)
+            titleLabel.transform = CGAffineTransform(translationX: 0, y: -offsetYNav/3)
+            deviceImageView.transform = CGAffineTransform(translationX: 0, y: -offsetYNav/4)
+            heroBg.transform = CGAffineTransform(translationX: 0, y: -offsetYNav/5)
         }
         
         //parallax and transform
@@ -129,10 +135,10 @@ extension ViewController: UIScrollViewDelegate {
                 cell.layer.transform = animateCell(cellFrame: cellFrame)
 
             }
+            return
         }
         
-        
-        let navigationIsHidden = offsetY <= 0
+        let navigationIsHidden = offsetYNav <= 0
         navigationController?.setNavigationBarHidden(navigationIsHidden, animated: true)
     }
     
@@ -187,9 +193,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             toViewController.indexPath = indexPath
             
             isStatusBarHidden = true
-            UIView.animate(withDuration: 0.5){
+            UIView.animate(withDuration: 0.5) {
                 self.setNeedsStatusBarAppearanceUpdate()
-                self.navigationController?.setNavigationBarHidden(self.isStatusBarHidden, animated: true)
+   self.navigationController?.setNavigationBarHidden(self.isStatusBarHidden, animated: true)
+                
             }
         }
         
@@ -216,7 +223,11 @@ extension ViewController {
         isStatusBarHidden = false
         UIView.animate(withDuration: 0.5) {
             self.setNeedsStatusBarAppearanceUpdate()
-        self.navigationController?.setNavigationBarHidden(self.isStatusBarHidden, animated: true)
+            
+            if(self.offsetYNav > 0){
+                self.navigationController?.setNavigationBarHidden(self.isStatusBarHidden, animated: true)
+            }
+            
         }
     }
     
@@ -228,6 +239,15 @@ extension ViewController {
     // setting the type of animation to slide
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
+    }
+}
+
+// Tab bar settings
+extension ViewController {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UITabBar.appearance().barTintColor = .black
+        UITabBar.appearance().tintColor = .white
+        return true
     }
 }
 

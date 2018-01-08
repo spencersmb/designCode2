@@ -76,7 +76,6 @@ extension SnapViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         // our original cell width is 300, but when we configure it to have cell spacing inside
         // the cell width is actually 330
-        print(inset)
         collectionViewLayout.itemSize = CGSize(width: (collectionViewLayout.collectionView!.frame.size.width) - inset * 3, height: collectionViewLayout.collectionView!.frame.size.height)
         
         collectionViewLayout.collectionView!.reloadData()
